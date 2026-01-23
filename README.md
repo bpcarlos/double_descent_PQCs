@@ -1,1 +1,1 @@
-There's a requirements.txt to check packages versions
+There's a requirements.txt to check package versions
