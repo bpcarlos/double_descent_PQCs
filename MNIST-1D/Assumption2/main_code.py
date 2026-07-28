@@ -420,7 +420,7 @@ class QuantumModel(nn.Module):
         self.c = c  # nn.Parameter(torch.tensor(c, dtype=torch.float32))
 
     def forward(self, x):
-        return self.q_layer(x)*self.c  #torch.exp(self.c) # for trainable c I found exp(c) working better
+        return self.q_layer(x)*self.c  #torch.exp(self.c) # for trainable c
 
 #%%
 """Define training loop function"""
@@ -529,10 +529,9 @@ selected_classes = [0,1,2,3,4,5,6,7]
 
 # load sample data
 X_train_init, y_train_init, X_test_init, y_test_init, X_val, y_val, K = load_mnist1d_multiclass(selected_classes=selected_classes, n_train=n_train_init, n_test=400, n_val=250, pca_dim=pca_dim)
-#X_train_init, y_train_init, X_test_init, y_test_init = load_synthetic_multiclass_linear(weights, input_dim=pca_dim, n_train=n_train_init, output_dim=n_qubits, n_test=400, noise_std=noise_std, seed=42)
 
 output_dim = y_train_init.shape[1]
-K = y_train_init.shape[1]  # K is output dimension too (not sure why I defined it twice...)
+K = y_train_init.shape[1]
 
 loss = nn.MSELoss() # at the moment it only works for MSE
 
