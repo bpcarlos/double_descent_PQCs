@@ -320,7 +320,7 @@ class QuantumModel(nn.Module):
         self.c = c  # nn.Parameter(torch.tensor(c, dtype=torch.float32))
 
     def forward(self, x):
-        return self.q_layer(x)*self.c  #torch.exp(self.c) # for trainable c I found exp(c) working better
+        return self.q_layer(x)*self.c  #torch.exp(self.c) # for trainable c
         
 def train_model(model, X_train, y_train, X_val, y_val, X_test, y_test,
                 epochs=3500, lr=1, loss=nn.MSELoss(),
