@@ -426,7 +426,7 @@ selected_classes = [0,1,2,3,4,5,6,7]  #,5,6,7,8,9]
 X_train_init, y_train_init, X_test_init, y_test_init, X_val, y_val, K = load_fashion_mnist_multiclass(selected_classes=selected_classes, n_train=n_train_init, n_test=400, n_val=250, pca_dim=pca_dim)
 
 output_dim = y_train_init.shape[1]
-K = y_train_init.shape[1]  # K is output dimension too (not sure why I defined it twice...)
+K = y_train_init.shape[1]
 
 loss = nn.MSELoss() # at the moment it only works for MSE
 
